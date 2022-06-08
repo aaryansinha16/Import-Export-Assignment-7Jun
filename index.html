@@ -14,8 +14,11 @@
     <!-- Search page start -->
 
     <div id="searchSec">
-        <input type="text" id="search" placeholder="Recipe Name">
-        <button id="searchBtn"><i class="fa fa-search"></i></button>
+        <div class="schBar">
+            <input type="text" id="search" placeholder="Recipe Name" oninput="debouncing(main, 1000)">
+            <button id="searchBtn"><i class="fa fa-search"></i></button>
+        </div>
+        <div id="results"></div>
     </div>
 
     <div id="container"></div>
@@ -41,6 +44,10 @@
         append(data, container)
     }
     document.querySelector("#searchBtn").addEventListener("click", searchFun)
+
+    // testing
+
     
 </script>
+<script src="script/main.js"></script>
 </html>

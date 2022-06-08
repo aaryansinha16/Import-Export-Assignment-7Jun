@@ -24,6 +24,34 @@ nav{
     justify-content: center;
     padding: 10px;
     margin-bottom: 30px;
+    flex-direction: column;
+
+}
+.schBar{
+    display: flex;
+    justify-content: center;
+}
+#results{
+    background-color: white;
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-right: 45px;
+    line-height: 0px;
+}
+#results>div{
+    width: 100%;
+    border-bottom: 1px solid;
+    text-align: center;
+    cursor: pointer;
+}
+#results>div:hover{
+    background-color: rgb(105, 247, 233);
+}
+#results>div>p{
+    font-size: 14px;
+    font-weight: 300;
 }
 a{
     text-decoration: none;
