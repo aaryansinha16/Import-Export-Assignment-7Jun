@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe of the Day</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <nav></nav>
+
+    <div id="container2"></div>
+    
+</body>
+<script type="module">
+    import navbar from "./script/navbar.js"
+
+    // console.log(navbar())
+    document.querySelector("nav").innerHTML = navbar()
+    
+
+    import {query, append} from "./script/search.js"
+    
+    let url = `https://www.themealdb.com/api/json/v1/1/random.php`
+    let data = await query(url)
+    let container = document.querySelector("#container2")
+    
+    // console.log(data)
+    append(data, container)
+</script>
+</html>

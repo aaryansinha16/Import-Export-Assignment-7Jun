@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav></nav>
+
+    <!-- Search page start -->
+
+    <div id="searchSec">
+        <input type="text" id="search" placeholder="Recipe Name">
+        <button id="searchBtn"><i class="fa fa-search"></i></button>
+    </div>
+
+    <div id="container"></div>
+
+
+</body>
+<script type="module">
+    import navbar from "./script/navbar.js"
+
+    // console.log(navbar())
+    document.querySelector("nav").innerHTML = navbar()
+    
+    import {query, append} from "./script/search.js"
+
+    let searchFun = async() => {
+        document.querySelector("#searchSec").style.marginTop = '50px'
+        let q = document.querySelector("#search").value 
+        let url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${q}`
+        
+        let data = await query(url)
+        let container = document.querySelector("#container")
+        
+        append(data, container)
+    }
+    document.querySelector("#searchBtn").addEventListener("click", searchFun)
+    
+</script>
+</html>
