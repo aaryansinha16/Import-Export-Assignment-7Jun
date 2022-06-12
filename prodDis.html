@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/background.css">
+    <style>
+        #content{
+            width: 80%;
+            margin: auto;
+            z-index: 99999;
+            display: flex;
+            margin-top: 50px;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            background-color: #FFE26A;
+            border: none;
+        }
+        .col1{
+            width: 45%;
+            display: flex;
+            align-items: center;
+        }
+        .col2{
+            width: 50%;
+            padding: 10px 20px 10px 20px ;
+        }
+        .col1>img{
+            width: 100%;
+            height: auto;
+        }
+        .name{
+            font-size: 25px;
+            font-weight: 600;
+        }
+        .category, .area{
+            font-size: 16px;
+            font-weight: 400;
+        }
+        .instructions{
+            font-size: 18px;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <div class='box'>
+        <div class='wave -one'></div>
+        <div class='wave -two'></div>
+        <div class='wave -three'></div>
+      </div>
+
+
+    <nav></nav>
+
+    <div id="content"></div>
+</body>
+<script type="module">
+    import navbar from "./script/navbar.js"
+    document.querySelector("nav").innerHTML = navbar()
+</script>
+<script src="./script/prodDis.js"></script>
+</html>

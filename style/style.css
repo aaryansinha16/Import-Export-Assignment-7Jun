@@ -13,6 +13,23 @@ nav{
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     background-color: #bce7a9;
 }
+#home{
+    display: flex;
+    width: 15%;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+#home>a{
+    width: 25%;
+}
+#home>a:hover{
+    box-shadow: none;
+}
+#home>a>img{
+    width: 100%;
+    border-radius: 50%;
+}
 #options{
     display: flex;
     justify-content: space-between;
@@ -65,9 +82,6 @@ a:hover{
          box-shadow: 0 10px 10px -10px #000000;;
 }
 
-body{
-    background-color: #9dd586;
-}
 input , #searchBtn { 
     font-size: 25px;
     padding: 10px;
@@ -79,7 +93,7 @@ input , #searchBtn {
     background-color: #FFE26A;
 }
 #searchBtn:hover{
-    background-color: lightblue;
+    background-color: #ace695;
 }
 input:hover{
     background-color: lightcyan;
@@ -106,9 +120,10 @@ input:hover{
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     background-color: #FFE26A;
-    padding: 5px;
+    padding: 5px 5px 15px 5px;
+    z-index: 15000;
 }
-#container>div:hover, #container2>div:hover, #container3>div:hover{
+#container>div:hover, #container2>div:hover, #container3>div:hover , #content:hover{
     box-shadow: none;
 }
 p{
@@ -117,4 +132,32 @@ p{
 }
 #container>div>img, #container2>div>img, #container3>div>img{
     width: 100%;
+}
+
+#add{
+    color: white;
+    background-color: rgb(52, 195, 243);
+    border: none;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+}
+#add:hover{
+    background-color: lightgreen;
+    color: darkgreen;
+}
+
+@media all and (min-width: 451px) and (max-width: 750px) {
+    #container{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 10px;
+    }
+}
+@media all and (min-width: 100px) and (max-width: 450px) {
+    #container{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 10px;
+    }
 }

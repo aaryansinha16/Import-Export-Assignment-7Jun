@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/background.css">
+    <style>
+        #container{
+            margin-top: 100px;
+        }
+        #remove{
+            border: none;
+            background-color: pink;
+            color: red;
+            font-size: 20px;
+            padding: 5px 10px 5px 10px;
+            cursor: pointer;
+        }
+        #remove:hover{
+            background-color: turquoise;
+            color: white;
+
+        }
+    </style>
+</head>
+<body>
+    <div class='box'>
+        <div class='wave -one'></div>
+        <div class='wave -two'></div>
+        <div class='wave -three'></div>
+      </div>
+
+
+    <nav></nav>
+
+    <div id="container"></div>
+</body>
+<script type="module">
+    import navbar from "./script/navbar.js"
+    document.querySelector("nav").innerHTML = navbar()
+
+    let cartData = JSON.parse(localStorage.getItem("cartList"))
+    console.log(cartData)
+
+    
+    function displayData(data){
+        let container = document.querySelector("#container")
+        data.forEach(function(elem, index){
+            console.log(elem)
+            let box = document.createElement("div")
+    
+            let img = document.createElement("img")
+            img.src = elem.strMealThumb
+    
+            let name = document.createElement("p")
+            name.innerText = elem.strMeal 
+
+            let remove = document.createElement("button")
+            remove.innerText = "Remove Item"
+            remove.setAttribute("id", 'remove')
+            remove.addEventListener('click', function(){
+                delt(elem, index)
+            })
+    
+            box.append(img, name, remove)
+            container.append(box)
+        })
+        
+        let cartArr = JSON.parse(localStorage.getItem("cartList")) || []
+        function delt(elem, index){
+            cartArr.splice(index, 1)
+            // console.log(removeArr)
+            localStorage.setItem("cartList", JSON.stringify(cartArr))
+            window.location.reload()
+        } 
+        
+    }
+    displayData(cartData)
+</script>
+</html>
